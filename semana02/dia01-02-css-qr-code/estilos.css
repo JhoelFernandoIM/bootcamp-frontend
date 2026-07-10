@@ -1,0 +1,20 @@
+body {
+    background-color: hsl(212, 45%, 89%);
+    font-size: 15px;
+
+    display: flex; /*felxbox propierty*/
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+
+}
+main {
+    border: 1px solid red;
+
+    width: 250px;
+
+
+    background-color: white;
+    text-align: center;
+}
