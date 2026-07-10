@@ -1,0 +1,40 @@
+/* esto es un comentario de css */
+body {
+    background-color: peru;
+}
+
+p {
+    color: blue;
+}
+
+h2 {
+    background-color: blue;
+}
+h3 {
+    background-color: gray;
+}
+h4 {
+    background-color: green;
+}
+
+
+h5 {
+    background-color: aqua;
+    font-size: 50px;
+}
+
+#estado {
+    background-color: yellow;
+}
+
+.btn {
+    background-color: red;
+}
+
+.texto-resaltado {
+    color: blue;
+}
+
+.btn-verde {
+    background-color: chartreuse;
+}
