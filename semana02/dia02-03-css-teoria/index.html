@@ -3,9 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Teoria css</title>
+    <style>
+        /*pseudo clase */
+
+        button {
+            background-color: red;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        /*pseudo elementos*/
+        /*permite crear partes visuales de un elemento(etiqueta)*/
+
+        p {
+            color: blue;
+        }
+
+        p::before {
+            content: '🧠X';
+            color: green;
+        }
+
+        p::after {
+            content: '🤖';
+            font-size: 28px;
+        }
+    </style>
 </head>
 <body>
+    <button>Clic aquí!</button>
+
+    <p>Texto especial</p>
+
+    <article>
+        <h2>Bievenido</h2>
+    
+        <strong>Hola a todos</strong>
+    </article>
+
+    <section>
+        <h1>Título</h1>
+        <h2>Subtítulo</h2>
+
+        <strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga provident hic corporis reprehenderit earum nam modi placeat. Ratione deleniti, nesciunt animi consequatur non perferendis quos corrupti, vitae sit atque aspernatur!</strong>
+
+        <em>texto con enfasis</em>
+
+        <a href="Soy un link"></a>
+    </section>
+
+    <header id="cabecera" class="texto">
+        ¿De qué color soy?
+    </header>
     
 </body>
 </html>
