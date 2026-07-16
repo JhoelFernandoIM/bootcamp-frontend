@@ -31,6 +31,49 @@
             content: '🤖';
             font-size: 28px;
         }
+
+        /* SELECTORES COMBINADOS*/
+
+        /*Selectores descendientes*/
+
+        article {
+            background-color: aquamarine;
+        }
+
+        h2 {
+            color: red;
+        }
+
+        article h2 {
+            color: orange;
+        }
+
+        article strong {
+            color: chocolate;
+        }
+
+        /*selector de multiples selectores*/
+
+        h1, h3, em {
+            border: 5px solid salmon;
+        }
+
+        /*Herencia */
+
+        /*Algunos elementos se heredan automaticamente y otros no lo hacen*/
+
+        body {
+            color: orange;
+        }
+
+        button {
+            color: inherit;
+        }
+
+        a {
+            color: green;
+            color: inherit;
+        }
     </style>
 </head>
 <body>
@@ -47,12 +90,13 @@
     <section>
         <h1>Título</h1>
         <h2>Subtítulo</h2>
+        <h3>Otro subtítulo</h3>
 
         <strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga provident hic corporis reprehenderit earum nam modi placeat. Ratione deleniti, nesciunt animi consequatur non perferendis quos corrupti, vitae sit atque aspernatur!</strong>
 
         <em>texto con enfasis</em>
 
-        <a href="Soy un link"></a>
+        <a href="">Soy un link</a>
     </section>
 
     <header id="cabecera" class="texto">

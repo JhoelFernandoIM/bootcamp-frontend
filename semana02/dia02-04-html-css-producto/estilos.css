@@ -1,0 +1,16 @@
+/*
+    font-family: "Montserrat", sans-serif;
+    font-family: "Fraunces", serif;
+*/
+
+body {
+    background-color: hsl(30, 38%, 92%);
+    font-family: "Montserrat", sans-seri;
+    font-size: 14px;
+}
+
+main {
+    border:  1px solid red;
+
+    width: 650px;
+}
