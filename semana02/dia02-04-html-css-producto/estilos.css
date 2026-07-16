@@ -5,12 +5,32 @@
 
 body {
     background-color: hsl(30, 38%, 92%);
+
     font-family: "Montserrat", sans-seri;
     font-size: 14px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 main {
     border:  1px solid red;
 
     width: 650px;
+    min-height: 400px;
+
+    display: flex;
+}
+
+.photo {
+    width: 350px;
+
+    background-image: url(images/image-product-desktop.jpg);
+    background-size: cover;
+}
+
+.content {
+    width: 300px;
 }
