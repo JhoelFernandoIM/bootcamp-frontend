@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    background-color: hsl(218, 28%, 13%);
+    background-color: hsl(217, 28%, 15%);
 
     color: hsl(0, 0%, 100%);
 
@@ -47,7 +47,7 @@ img{
 }
 
 .wrapper {
-    width: min(100% - 3rem, 1440px); /*adpatar el ancho a dispositivos más pequeños*/
+    width: min(100% - 5rem, 1440px); /*adpatar el ancho a dispositivos más pequeños*/
     
 
     margin: 0 auto;
@@ -116,4 +116,57 @@ img{
 .hero__text {
     text-align: center;
     width: min(100% - 3rem, 460px);
+}
+
+.hero__button {
+    border: none;
+    background-color: hsl(176, 68%, 64%);
+    border-radius: 7rem;
+    padding: 1rem;
+    min-width: 260px;
+    color: white;
+
+    font-weight: 700;
+}
+
+/*section 2 produtivity */
+
+.section2 {
+    display: flex;
+    background-color: hsl(218, 28%, 13%);
+    gap: 3rem;
+    align-items: center;
+
+    padding: 4rem;
+
+}
+
+.section2__image {
+    max-width: 50%;
+    height: auto;
+}
+
+.section2 div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section2__link {
+    color: hsl(176, 68%, 64%);
+    /* text-decoration: underline;
+    text-underline-offset: 4px; */
+
+    border-bottom: 1px solid hsl(176, 68%, 64%);
+    padding-bottom: 0.5rem;
+
+    width: max-content;
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section2__link img {
+    display: inline;
 }
