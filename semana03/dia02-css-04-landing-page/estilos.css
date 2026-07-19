@@ -35,6 +35,9 @@ a {
 
 img{
 
+    max-width: 100%;
+    height: auto; /*imagen nunca es mas grande que el contenedor*/
+
 }
 
 /*UTILITARIOS */
@@ -44,7 +47,8 @@ img{
 }
 
 .wrapper {
-    width: 1440px; /*adpatar el ancho a dispositivos más pequeños*/
+    width: min(100% - 3rem, 1440px); /*adpatar el ancho a dispositivos más pequeños*/
+    
 
     margin: 0 auto;
 }
