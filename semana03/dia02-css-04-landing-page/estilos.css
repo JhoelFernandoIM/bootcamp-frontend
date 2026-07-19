@@ -1,12 +1,75 @@
 /* font-family: "Raleway", sans-serif; */
 /* font-family: "Open Sans", sans-serif; */
-body {
-    background-color: aquamarine;
 
-    border: 2px solid red;
+/*estilos generales*/
+
+/* selector universal */
+
+* {
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+    margin: 0;
+
+}
+
+html {
     font-size: 14px;
 }
 
+body {
+    background-color: hsl(218, 28%, 13%);
+
+    color: hsl(0, 0%, 100%);
+
+    /* border: 2px solid red; */
+    font-size: 14px;
+    font-family: "Open Sans", sans-serif;
+
+}
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+img{
+
+}
+
+/*UTILITARIOS */
+
 .hidden {
     display: none;
+}
+
+.wrapper {
+    width: 1440px; /*adpatar el ancho a dispositivos más pequeños*/
+
+    margin: 0 auto;
+}
+
+/*HEADER*/
+
+.header {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-top: 42px;
+
+    background-color: hsl(217, 28%, 15%);
+}
+
+.header__logo {
+    /* border: 1px solid red; */
+    width: 140px;
+}
+
+.header__nav {
+    /* border: 1px solid red; */
+
+    display: flex;
+    gap: 42px; /*42px = 14 *3 =3rem*/
 }
