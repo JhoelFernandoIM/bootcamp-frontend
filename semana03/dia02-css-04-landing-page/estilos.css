@@ -101,3 +101,19 @@ img{
     background-position: bottom;
     background-size: contain;
 }
+
+.hero__title {
+    /*elije el valor mas pequeño entre los que pasamos*/
+    width: min(100% - 3rem, 720px);
+
+    font-size: 2.5rem;
+
+    text-align: center;
+
+    font-family: "Raleway", sans-serif;
+}
+
+.hero__text {
+    text-align: center;
+    width: min(100% - 3rem, 460px);
+}
