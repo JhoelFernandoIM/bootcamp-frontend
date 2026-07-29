@@ -129,6 +129,58 @@ img{
     font-weight: 700;
 }
 
+
+/*section features*/
+
+.features {
+    /* border: 1px solid red; */
+
+    display: grid;
+    grid-template-columns: 340px;
+    grid-template-rows: 240px 240px;
+    justify-content: center;
+    gap: 5rem;
+}
+
+
+/*MEDIA QUERY se aplica a dispositovs moviles segun tamaño apantalla*/
+
+@media (min-width: 992px) {
+    .features {
+        grid-template-columns: 340px 340px;
+    }
+}
+
+.feature {
+    /* border: 1px solid blue; */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.feature__title {
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+
+}
+
+.feature__text {
+    text-align: center;
+
+    line-height: 1.6;
+}
+
+
+
+
+
+
+
 /*section 2 produtivity */
 
 .section2 {
