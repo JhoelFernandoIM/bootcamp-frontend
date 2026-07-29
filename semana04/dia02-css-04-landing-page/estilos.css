@@ -120,13 +120,19 @@ img{
 
 .hero__button {
     border: none;
-    background-color: hsl(176, 68%, 64%);
+    /* background-color: hsl(176, 68%, 64%); */
     border-radius: 7rem;
     padding: 1rem;
     min-width: 260px;
     color: white;
 
     font-weight: 700;
+
+    background: linear-gradient(
+        90deg,
+        hsl(176, 68%, 64%) 0%, 
+        hsl(198, 60%, 50%) 100%
+    );
 }
 
 
@@ -185,6 +191,7 @@ img{
 
 .section2 {
     display: flex;
+    flex-direction: column;
     background-color: hsl(218, 28%, 13%);
     gap: 3rem;
     align-items: center;
@@ -195,6 +202,7 @@ img{
 
 .section2__image {
     max-width: 50%;
+    min-width: 340px;
     height: auto;
 }
 
@@ -221,6 +229,16 @@ img{
 
 .section2__link img {
     display: inline;
+}
+
+@media (min-width:992px) {
+    .section2 {
+        flex-direction: row;
+    }
+
+    .section2__image {
+        max-width: 50%;
+    }
 }
 
 /* TESTIMONIALS */
