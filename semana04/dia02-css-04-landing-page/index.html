@@ -10,30 +10,35 @@
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-  <header class="header wrapper">
-  <img class="header__logo" src="images/logo.svg" alt="">
+  <header class="header">
+    <div class="wrapper header__content">
+      <img class="header__logo" src="images/logo.svg" alt="">
+    
+      <nav class="header__nav">
+        <a href="" class="header__nav--active">Features</a>
+        <a href="">Team</a>
+        <a href="">Sign In</a>
+      </nav>
+    </div>
 
-  <nav class="header__nav">
-    <a href="" class="header__nav--active">Features</a>
-    <a href="">Team</a>
-    <a href="">Sign In</a>
-  </nav>
   </header>
 
   <main>
-    <section class="hero wrapper">
-      <img class="hero__image" src="images/illustration-intro.png" alt="Ilustration intro">
+    <section class="hero">
+      <div class="wrapper hero__content">
+        <img class="hero__image" src="images/illustration-intro.png" alt="Ilustration intro">
+  
+        <h1 class="hero__title">All your files in one secure location, accessible anywhere.</h1>
+        
+        <p class="hero__text">
+          Fylo stores all your most important files in one secure location. Access them wherever 
+          you need, share and collaborate with friends family, and co-workers.
+        </p>
+  
+  
+        <button class="hero__button">Get Started</button>      
 
-      <h1 class="hero__title">All your files in one secure location, accessible anywhere.</h1>
-      
-      <p class="hero__text">
-        Fylo stores all your most important files in one secure location. Access them wherever 
-        you need, share and collaborate with friends family, and co-workers.
-      </p>
-
-
-      <button class="hero__button">Get Started</button>      
-      <div></div>
+      </div>
     </section>
 
     <section class="features">
@@ -180,16 +185,16 @@
 
   <footer class="footer">
 
-    <img src="images/logo.svg" alt="">
+    <img class="footer__logo" src="images/logo.svg" alt="">
 
     <div class="footer--info">
-      <div>
+      <div class="footer--info__description">
         <img src="images/icon-location.svg" alt="">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
         dolore magna aliqua
       </div>
 
-      <div>
+      <div class="footer--info__contact">
         <span>
           <img src="images/icon-phone.svg" alt="">
           +1-543-123-4567
@@ -200,33 +205,32 @@
         </span>
       </div>
 
-      <div>
+      <div class="footer--info__links">
         <a href="">About Us</a>
         <a href="">Jobs</a>
         <a href="">Press</a>
         <a href="">Blog</a>
       </div>
 
-      <div>
-        <a href=""></a>
-        <a href=""></a>
-        <a href=""></a>
+      <div class="footer--info__links">
+        <a href="">Contact us</a>
+        <a href="">Terms</a>
+        <a href="">Privacy</a>
+      </div>
+
+      <div class="footer--info__social">
+        <a href="">
+          <svg xmlns="http://www.w3.org/2000/svg" class="tabler-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-facebook"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3" /></svg>
+        </a>
+        <a href="">
+          <svg xmlns="http://www.w3.org/2000/svg" class="tabler-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-twitter"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c0 -.249 1.51 -2.772 1.818 -4.013l0 .001" /></svg>
+        </a>
+        <a href="">
+          <svg xmlns="http://www.w3.org/2000/svg" class="tabler-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-instagram"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M4 8a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4l0 -8" /><path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M16.5 7.5v.01" /></svg>
+        </a>
       </div>
 
     </div>
-    
-      
-    
-    
-      
-    
-    
-    
-    
-      
-    Contact Us
-    Terms
-    Privacy
   </footer>
   
 
