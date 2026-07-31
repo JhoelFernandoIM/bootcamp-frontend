@@ -64,10 +64,31 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    padding: 1rem;
+    margin-bottom: 2rem;
 }
 
 .header__logo {
     color: var(--primary-color-gold);
     font-weight: var(--font-weight-bold);
+    font-size: 2rem;
 }
 
+.header__menu {
+    display: flex;
+    gap: 1.5rem;
+
+    /* font-weight: var(--font-weight-semibold); */
+}
+
+.header__menu a {
+    text-transform: capitalize;
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-semibold);
+}
+
+.header__links {
+    display: flex;
+    gap: 1rem;
+}
