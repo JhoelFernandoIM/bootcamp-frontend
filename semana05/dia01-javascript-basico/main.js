@@ -114,3 +114,183 @@ console.log(`Hola ${nombre2}, tienes ${edad2} años`) //con interpolacion
 
 //Condicionales
 
+let numero = 4
+
+if (numero % 2 === 0) {
+    console.log('Es par')
+}
+
+let nota = 12
+
+if (nota >= 13) {
+    console.log('Aprobado')
+} else {
+    console.log('Desaprobado')
+}
+
+let heroe = 'Spiderman'
+
+if (heroe === 'Batman') {
+    console.log('Hola soy Bruce Wayne')
+} else if (heroe === 'Spiderman') {
+    console.log('Hola soy Peter Parker')
+} else if (heroe === 'Ironman') {
+    console.log('Hola soy Tony Stark')
+} else {
+    console.log('No soy un heroe')
+}
+
+//INVESTIGAR ESTRUCTURA SWITCH
+
+//estructuras repetititvas
+//FOR
+
+// console.log(0)
+// console.log(1)
+// console.log(2)
+// console.log(3)
+// console.log(4)
+// console.log(5)
+// console.log(6)
+// console.log(7)
+// console.log(8)
+// console.log(9)
+
+for (let i = 0; i < 10; i++) {
+    console.log(i)
+}
+
+// while
+
+let j = 0
+
+while (j < 10) {
+    console.log('while', j)
+
+    j++
+}
+
+// do while, buscar diferencia TAREA con while
+
+// EJERCICIOS
+
+// 2. Dado un número, mostrar "par y mayor a 10", "par y menor o igual a 10", "Impar"
+
+let n = 3
+
+if (n % 2 === 0 && n > 10) {
+    console.log('El número es par y mayor a 10 ')
+} else if (n % 2 === 0 && n <= 10) {
+    console.log('El número es par y menor a 10 ')
+} else if (n % 2 !==0) {
+    console.log('El número es impar')
+}
+
+// 3. Dado un número entero, escribe un programa que:
+// - Muestre "fizzbuzz" si el número es divisible entre 3 y 5.
+// - Muestre "fizz" si el número es divisible solo entre 3.
+// - Muestre "buzz" si el número es divisible solo entre 5.
+// - En cualquier otro caso, debe mostrar el mismo número.
+
+let r = 15
+
+if (r % 5 === 0 && r % 3 === 0) {
+    console.log('fizzbuzz')
+} else if (r % 3 === 0) {
+    console.log('fizz')
+} else if (r % 5 === 0) {
+    console.log('buzz')
+} else {
+    console.log(r)
+}
+
+//FUNCION
+//Funcion basica
+
+function saludar () {
+    console.log('Hola funciones!')
+}
+
+saludar()
+saludar()
+saludar()
+
+//funciones con parametros
+
+function saludoConNombre(nombre) {
+    console.log('Hola ' + nombre)
+}
+
+saludoConNombre('Fernando')
+saludoConNombre()
+
+// Funciones que retornan valores
+function sumar(a, b) {
+    const suma = a + b
+
+    return suma // Devolver solo el resultado de lo que se opere
+}
+console.log(sumar(2,3))
+
+
+//Ejercicio
+
+function esPar(numero) {
+    return numero % 2 === 0
+}
+
+console.log(esPar(4)) //true
+console.log(esPar(7)) // false
+
+// Ejercicios
+
+
+
+// 1. Crear una función que reciba un número y devuelva el doble de ese número por consola
+
+function duplicar(t) {
+    const doble = t * 2
+    return doble
+}
+
+console.log(duplicar(2))
+
+
+// 2. Crear una función que reciba dos números y devuelva el mayor por consola
+
+function MayorDeDosNumeros (a,b) {
+    if (a > b) {
+        console.log(a, 'es mayor')
+    } else if (b > a) {
+        console.log(b, 'es mayor')
+    } else {
+        console.log('Los números son iguales')
+    }
+}
+
+MayorDeDosNumeros(3,5)
+
+// 3. Reutilizar el ejercicio de fizzBuzz usando funciones de tal forma que puedan llamarlo de la siguiente manera. Ej. fizzBuzz(15) -> fizzbuzz
+
+//PENDIENTE
+
+
+
+//CADENA DE TEXTO
+
+//Propiedad .length
+
+console.log("Hola".length)
+
+//acceder a cada caracter, empeiza con 0
+
+let miNombre = 'Jhoel'
+console.log(miNombre[0]) //J
+console.log(miNombre[1]) //h
+console.log(miNombre[2]) // o
+
+//metodos importantes de las cadenas de texto
+
+console.log(miNombre.toLowerCase())
+console.log(miNombre.toUpperCase())
+console.log(miNombre.includes('ho'))
