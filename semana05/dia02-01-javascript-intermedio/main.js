@@ -64,3 +64,39 @@ console.log(listaDeNombres)
 
 listaDeNombres.splice(2, 1)
 console.log(listaDeNombres)
+
+//Obtener el tamaño de nuestro arreglo
+
+console.log(listaDeNombres.length)
+console.log('bienvenido'.length)
+
+//Obtener el último elemento del arreglo
+
+console.log(listaDeNombres[3 - 1])
+console.log(listaDeNombres[listaDeNombres.length - 1])
+console.log(listaDeNombres.at(-0))
+console.log(listaDeNombres.at(-1))
+console.log(listaDeNombres.at(-2))
+
+//TODO: Otras funciones - slice (investigar, permite sacar porciones de un arreglo)
+
+//MÉTODOS DE ARREGLOS (INCLUDES, FILTER, MAP, SORT, FOREACH, REDUCE)
+
+// Método INCLUDES, nos indica si el valor que se pasa como parametro se encuentra en el arreglo
+
+const lenguajes = ['javascript', 'php', 'python', 'C', 'c++', 'java', 'python']
+
+console.log(lenguajes.includes('java')) //true
+console.log(lenguajes.includes('cobol')) //false
+
+//METODO FILTER, Ubica un elemento dentro de un arreglo usando una condicion y devuelve un nuevo arreglo conlo que encontro
+
+const resultado = lenguajes.filter(function(item) {
+    // return item === 'java'
+    // return item === 'python'
+    // return item.includes('c') || item.includes('C')
+    return  item.toLowerCase().includes('c')
+})
+
+console.log(resultado)
+
