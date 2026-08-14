@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript + DOM 2</title>
+</head>
+<body>
+    <h1>DOM (Document Object Model)</h1>
+
+    <p>Es una representación en forma de árbol de una página web</p>
+
+    <ul>
+        <li>Leer contenido de la página</li>
+        <li>Cambiar textos, atributos, estilos dinámicamente</li>
+        <li>Crear o eliminar elementos</li>
+        <li>Escuchar eventos (click, teclas, scroll, mouse, etc)</li>
+    </ul>
+
+    <script>
+        console.log('Hola DOM')
+        console.log(document)
+        console.log({ document: document}) // para poder ver que contiene el document
+
+        console.log(document.title)
+
+        document.title = "Mi nueva página" //Escritura de un nuevo título para la página
+    </script>
+    
+</body>
+</html>
