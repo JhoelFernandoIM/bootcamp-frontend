@@ -4,6 +4,7 @@ const taskInput = document.querySelector('.task__input')
 const taskClear = document.querySelector('.task__clear')
 const taskList = document.querySelector('.task__list')
 
+
 let tasks = [
     {
         title: 'Estudiar Javascript',
@@ -22,6 +23,11 @@ let tasks = [
 
 taskInput.addEventListener('keydown', (event) => {
     // console.log('agregando tarea...', event.key, event.keyCode)
+    //validaciones para evitar que el usuario agrege tarea vacía
+    if(event.target.value === '') {
+        return
+    }
+
     if (event.key === 'Enter') {
         const newTask = {
             title: event.target.value,
@@ -39,6 +45,8 @@ taskInput.addEventListener('keydown', (event) => {
 
 })
 
+//TODO: agreguen la clase line-through para tachar el título de la tarea si esta está completada
+
 function renderTasks(tasks = []) {
     let lista = ''
 
@@ -48,8 +56,12 @@ function renderTasks(tasks = []) {
             <input
                 type="checkbox"
                 ${task.completed ? 'checked' : ''}
+                onchange="checkTask(${index})"
             >
-            <div class="w-full">
+            <div class="w-full
+                ${task.completed ? 'line-through text-gray-400' : ''}"
+            
+            >
                 ${task.title}
             </div>
             <button
@@ -76,6 +88,34 @@ function removeTask(selectedIndex) {
     tasks = modifiedTasks
 
     renderTasks(tasks)
+}
+
+function checkTask(selectedIndex) {
+    //Devolver un objeto que tiene title y completed
+    const taskSelected = {...tasks[selectedIndex]}
+
+    taskSelected.completed = !taskSelected.completed
+
+    tasks[selectedIndex] = taskSelected
+
+    renderTasks(tasks)
+}
+
+//TODO: Implementar el boton 'limpiar tareas completadas' para que se remuevan las tareas que tengan el estado completed en true
+
+taskClear.addEventListener('click', (event) => {
+    // const deletedTasks = tasks.filter((task) => task.completed !== true)
+    const deletedTasks = tasks.filter((task) => !task.completed)
+
+    console.log(deletedTasks)
+
+    tasks = deletedTasks
+
+    renderTasks(tasks)
+})
+
+function clearCompletedTasks (selectedIndex) {
+
 }
 
 renderTasks(tasks)
