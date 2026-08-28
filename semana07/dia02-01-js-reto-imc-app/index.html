@@ -11,7 +11,7 @@
         <h1 class="title text-center font-bold bg-slate-300 py-2">
             Indice de masa corporal
         </h1>
-        <section class="container flex flex-col gap-2 justify-around m-5">
+        <section class="container flex flex-col gap-2 justify-around m-5 w-auto">
             <h2>
                 Peso (KG)
             </h2>
@@ -20,12 +20,18 @@
             <h2>
                 Altura (CM)
             </h2>
-            <input type="text" placeholder="Ej. 170">
+            <input class="altura border border-gray-300 rounded-lg p-2 w-full" 
+                type="text" placeholder="Ej. 170">
 
-            <button>Calcular</button>
+            <button class="button_calcular bg-blue-400 hover:bg-blue-800 p-1 mt-2 text-white transition duration-200 cursor-pointer">Calcular</button>
 
         </section>
     </main>
+
+    <script src="main.js">
+        
+
+    </script>
     
 </body>
 </html>
