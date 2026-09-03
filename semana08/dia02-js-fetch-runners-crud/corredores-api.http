@@ -1,0 +1,30 @@
+### listar a todos los corredores
+GET https://apibox.vercel.app/RGxQnAzzuo94pJR1ZhfIIXKkfwqt1nlf/api/corredores
+
+###Crear un corredor
+POST https://apibox.vercel.app/RGxQnAzzuo94pJR1ZhfIIXKkfwqt1nlf/api/corredores
+Content-Type: application/json
+
+{
+  "nombre": "Fernando",
+  "edad": 23,
+  "categoria": "492K",
+  "dorsal": "103"
+}
+
+###Obtener la información de un corredor
+GET https://apibox.vercel.app/RGxQnAzzuo94pJR1ZhfIIXKkfwqt1nlf/api/corredores/c517d30c-2d91-439e-b45a-85c4b823da64
+
+### Borrar un corredor
+DELETE https://apibox.vercel.app/RGxQnAzzuo94pJR1ZhfIIXKkfwqt1nlf/api/corredores/5e9d7d13-a9df-4296-9559-510fd7b05454
+
+###Actualizar un corredor
+PUT https://apibox.vercel.app/RGxQnAzzuo94pJR1ZhfIIXKkfwqt1nlf/api/corredores/c517d30c-2d91-439e-b45a-85c4b823da64
+Content-Type: application/json
+
+{
+  "nombre": "jHOEL",
+  "edad": 23.2,
+  "categoria": "492K",
+  "dorsal": "105"
+}
