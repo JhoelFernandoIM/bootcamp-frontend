@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dragon Ball CRUD · Bootcamp Frontend G31</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --db-orange:#FF6A13;
+    --db-orange-dark:#E2540A;
+    --db-navy:#141A35;
+    --db-blue:#2B5FE0;
+    --db-sky:#EFF3FF;
+  }
+  body{ font-family:'Inter', sans-serif; background:#FBF9F6; color:var(--db-navy); }
+  .font-display{ font-family:'Baloo 2', sans-serif; }
+  .ball{
+    background: radial-gradient(circle at 32% 28%, #FFE7B0, #FFB020 55%, #E2540A 100%);
+    box-shadow: inset -4px -6px 10px rgba(0,0,0,.25), 0 2px 6px rgba(0,0,0,.15);
+  }
+  .ball::after{
+    content:'★';
+    color:#B23A0A;
+    font-size:.7em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.4);
+  }
+  .card-photo{ background: linear-gradient(160deg, var(--db-sky), #E4ECFF); }
+  ::selection{ background: var(--db-orange); color:#fff; }
+</style>
+</head>
+<body class="min-h-screen">
+
+  <main class="max-w-5xl mx-auto px-6 py-14">
+
+    <!-- Encabezado -->
+    <header class="flex flex-wrap items-end justify-between gap-6 mb-12">
+      <div class="flex items-center gap-3">
+        <div class="ball w-11 h-11 rounded-full flex items-center justify-center shrink-0"></div>
+        <div>
+          <p class="text-xs font-semibold text-[var(--db-orange-dark)] mb-0.5">Bootcamp Frontend G31 · Reto Semana 08</p>
+          <h1 class="font-display font-800 text-3xl sm:text-4xl leading-none">Guía de Guerreros Z</h1>
+        </div>
+      </div>
+      <div class="text-right shrink-0">
+        <p id="contador" class="font-display text-3xl font-700 leading-none text-[var(--db-navy)]">0</p>
+        <p class="text-xs text-neutral-400">personajes registrados</p>
+      </div>
+    </header>
+
+    <div class="grid md:grid-cols-[300px_1fr] gap-8 items-start">
+
+      <!-- Formulario -->
+      <form id="form" class="bg-white border border-neutral-200 rounded-2xl p-6 shadow-sm md:sticky md:top-8" novalidate>
+        <input type="hidden" id="personajeId">
+
+        <p id="formTitulo" class="font-display font-700 text-lg mb-1">Nuevo personaje</p>
+        <p class="text-xs text-neutral-400 mb-5">Añade un guerrero a la guía.</p>
+
+        <div class="flex flex-col gap-4 mb-2">
+          <label class="block text-xs font-medium text-neutral-500">
+            Nombre <span class="text-[var(--db-orange-dark)]">*</span>
+            <input
+              id="nombre" type="text" placeholder="Goku"
+              class="mt-1 w-full border border-neutral-200 rounded-lg bg-transparent px-3 py-2 text-sm outline-none focus:border-[var(--db-orange)] focus:ring-2 focus:ring-orange-100 transition-colors"
+            >
+          </label>
+
+          <label class="block text-xs font-medium text-neutral-500">
+            URL de imagen <span class="text-[var(--db-orange-dark)]">*</span>
+            <input
+              id="imagen" type="url" placeholder="https://dragonball-api.com/goku.jpg"
+              class="mt-1 w-full border border-neutral-200 rounded-lg bg-transparent px-3 py-2 text-sm outline-none focus:border-[var(--db-orange)] focus:ring-2 focus:ring-orange-100 transition-colors"
+            >
+          </label>
+
+          <label class="block text-xs font-medium text-neutral-500">
+            Raza <span class="text-[var(--db-orange-dark)]">*</span>
+            <input
+              id="raza" type="text" placeholder="Saiyan"
+              class="mt-1 w-full border border-neutral-200 rounded-lg bg-transparent px-3 py-2 text-sm outline-none focus:border-[var(--db-orange)] focus:ring-2 focus:ring-orange-100 transition-colors"
+            >
+          </label>
+
+          <label class="block text-xs font-medium text-neutral-500">
+            Género
+            <select
+              id="genero"
+              class="mt-1 w-full border border-neutral-200 rounded-lg bg-transparent px-3 py-2 text-sm outline-none focus:border-[var(--db-orange)] focus:ring-2 focus:ring-orange-100 transition-colors"
+            >
+              <option value="">Sin especificar</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </label>
+        </div>
+
+        <p id="formError" class="hidden text-xs text-red-500 mb-3"></p>
+
+        <div class="flex flex-col gap-2 mt-4">
+          <button
+            type="submit" id="submitBtn"
+            class="w-full bg-[var(--db-orange)] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[var(--db-orange-dark)] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Agregar personaje
+          </button>
+          <button
+            type="button" id="cancelBtn"
+            class="hidden text-xs text-neutral-400 hover:text-neutral-900 transition-colors py-1"
+          >
+            Cancelar edición
+          </button>
+        </div>
+      </form>
+
+      <!-- Listado -->
+      <section>
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="font-display font-700 text-sm text-neutral-500">Lista de personajes</h2>
+          <div class="h-px flex-1 bg-neutral-200 mx-4"></div>
+        </div>
+
+        <p id="loading" class="hidden text-sm text-neutral-400 py-16 text-center">
+          Cargando personajes...
+        </p>
+
+        <p id="errorMsg" class="hidden text-sm text-red-500 bg-red-50 border border-red-100 rounded-xl px-4 py-3 mb-4">
+        </p>
+
+        <div id="vacio" class="hidden text-center py-16 border border-dashed border-neutral-200 rounded-xl">
+          <p class="text-lg font-semibold text-neutral-400 mb-1">Sin personajes aún</p>
+          <p class="text-sm text-neutral-400">Agrega el primero desde el formulario.</p>
+        </div>
+
+        <ul id="lista" class="grid sm:grid-cols-2 gap-4 mb-6">
+          <!-- las tarjetas se insertan por JS -->
+        </ul>
+
+        <nav id="paginacion" class="hidden flex items-center justify-center gap-1 flex-wrap"></nav>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="max-w-5xl mx-auto px-6 pb-10">
+    <p class="text-center text-xs text-neutral-400">
+      <a href="https://github.com/TU-USUARIO/TU-REPOSITORIO" target="_blank" class="hover:underline">
+        Repositorio del proyecto · Bootcamp Frontend Python G31
+      </a>
+    </p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
