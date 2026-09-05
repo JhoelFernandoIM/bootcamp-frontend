@@ -1,14 +1,9 @@
-// =============================================
-// CONFIGURACIÓN
-// =============================================
-// 👉 Reemplaza esta URL por la de TU box en APIBox (ver explicación aparte).
+
 const API_URL = 'https://apibox.vercel.app/RGxQnAzzuo94pJR1ZhfIIXKkfwqt1nlf/api/personajes'
 
 const POR_PAGINA = 6
 
-// =============================================
 // REFERENCIAS AL DOM
-// =============================================
 const form = document.querySelector('#form')
 const lista = document.querySelector('#lista')
 const contador = document.querySelector('#contador')
@@ -77,7 +72,6 @@ const resetFormularioUI = () => {
   mostrarErrorForm('')
 }
 
-// =============================================
 // CARGA DE DATOS (READ)
 // =============================================
 const cargarPersonajes = async () => {
@@ -301,7 +295,5 @@ lista.addEventListener('click', async (event) => {
   }
 })
 
-// =============================================
-// INICIO
-// =============================================
+
 cargarPersonajes()
