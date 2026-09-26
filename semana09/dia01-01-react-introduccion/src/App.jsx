@@ -118,11 +118,16 @@ import ComponenteDespedida from "./components/ComponenteDespedida"
 
 // 07 - Usando expresiones con JSX -> "{}"
 
+import nombreExportado, {frutas, curso} from "./modulo.js"
+
 
 const App = () => {
   //Lógica del componente
   const suma = 8 + 9
   const nombre = 'Jhoel'
+
+  // Comentario en React.js van dentro del cuerpo de la funci'on
+  /* comentario multilinea */
 
 
   return (
@@ -132,6 +137,19 @@ const App = () => {
       <p>hola {suma}</p>
       <p>hola {1+2*9**2}</p>
       <p>{nombre}</p>
+
+      <p>Hola {nombre}</p>
+      <p>{`Hola ${nombre}`}</p>
+
+
+      {/*Comentarios en react.js dentro de JSX */}
+      
+
+      <p>{frutas}</p>
+      <p>{nombreExportado} </p>
+      <p>{JSON.stringify(curso)}</p>
+      <p>{curso.nota}</p>
+
     </section>
   )
 }
