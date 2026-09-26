@@ -72,23 +72,66 @@
 
 // 05 - Anidar componentes dentro de otros
 
-function ComponenteSaludo () {
-  return <h4>Hola a todos!</h4>
-}
+// function ComponenteSaludo () {
+//   return <h4>Hola a todos!</h4>
+// }
 
-function ComponenteDespedida() {
-  return <h4>Adios a todos!</h4>
-}
+// function ComponenteDespedida() {
+//   return <h4>Adios a todos!</h4>
+// }
+
+// const App = () => {
+//   return (
+//     <section>
+//       <h3>Componentes anidados</h3>
+
+
+//       <ComponenteSaludo />
+
+//       <ComponenteDespedida  />
+//     </section>
+//   )
+// }
+
+
+//06 - Importando componentes externos
+
+import ComponenteSaludo from "./components/ComponenteSaludo"
+
+import ComponenteDespedida from "./components/ComponenteDespedida"
+
+//TODO: Crear componete CompoenteDespedida en su propio archivo e importarlo en el componete App
+
+// const App = () => {
+//   return (
+//     <section>
+//       <h3>Componentes externos</h3>
+
+//       <ComponenteSaludo/>
+
+//       <ComponenteDespedida/>
+//     </section>
+//   )
+// }
+
+// export default App
+
+// 07 - Usando expresiones con JSX -> "{}"
+
 
 const App = () => {
+  //Lógica del componente
+  const suma = 8 + 9
+  const nombre = 'Jhoel'
+
+
   return (
     <section>
-      <h3>Componentes anidados</h3>
+      <h1>Usando expresiones con jsx</h1>
 
-
-      <ComponenteSaludo />
-
-      <ComponenteDespedida  />
+      <p>hola {suma}</p>
+      <p>hola {1+2*9**2}</p>
+      <p>{nombre}</p>
     </section>
   )
 }
