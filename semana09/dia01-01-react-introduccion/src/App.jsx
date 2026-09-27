@@ -121,37 +121,82 @@ import ComponenteDespedida from "./components/ComponenteDespedida"
 import nombreExportado, {frutas, curso} from "./modulo.js"
 
 
-const App = () => {
-  //Lógica del componente
-  const suma = 8 + 9
-  const nombre = 'Jhoel'
+// const App = () => {
+//   //Lógica del componente
+//   const suma = 8 + 9
+//   const nombre = 'Jhoel'
 
-  // Comentario en React.js van dentro del cuerpo de la funci'on
-  /* comentario multilinea */
-
-
-  return (
-    <section>
-      <h1>Usando expresiones con jsx</h1>
-
-      <p>hola {suma}</p>
-      <p>hola {1+2*9**2}</p>
-      <p>{nombre}</p>
-
-      <p>Hola {nombre}</p>
-      <p>{`Hola ${nombre}`}</p>
+//   // Comentario en React.js van dentro del cuerpo de la funci'on
+//   /* comentario multilinea */
 
 
-      {/*Comentarios en react.js dentro de JSX */}
+//   return (
+//     <section>
+//       <h1>Usando expresiones con jsx</h1>
+
+//       <p>hola {suma}</p>
+//       <p>hola {1+2*9**2}</p>
+//       <p>{nombre}</p>
+
+//       <p>Hola {nombre}</p>
+//       <p>{`Hola ${nombre}`}</p>
+
+
+//       {/*Comentarios en react.js dentro de JSX */}
       
 
-      <p>{frutas}</p>
-      <p>{nombreExportado} </p>
-      <p>{JSON.stringify(curso)}</p>
-      <p>{curso.nota}</p>
+//       <p>{frutas}</p>
+//       <p>{nombreExportado} </p>
+//       <p>{JSON.stringify(curso)}</p>
+//       <p>{curso.nota}</p>
 
+//     </section>
+//   )
+// }
+
+// // 09 - propiedades de un componente (Ahora el componente sera reutilizable)
+
+// const BienvenidaPersonalizada = (props) => {
+//   return <h3>Hola {props.nombre}, tu edad es {props.edad ?? '0'} años</h3>
+// }
+
+
+// const App = () => {
+//   return (
+//     <section>
+//       <h4>Propiedades de un componente</h4>
+
+//       <BienvenidaPersonalizada nombre="Jhoel" edad="23" />
+//       <BienvenidaPersonalizada nombre="Fernando" edad="22" />
+//       <BienvenidaPersonalizada nombre="Fernando" />
+//     </section>
+//   )
+// }
+
+
+// export default App
+
+// 10 - propiedades de un componente (con destructuring)
+
+const BienvenidaPersonalizada = ({nombre, edad, color = 'rojo'}) => {
+  return <h3>Hola {nombre}, tu edad es {edad ?? '0'} años y tu color favorito es el {color}</h3>
+}
+
+
+const App = () => {
+  return (
+    <section>
+      <h4>Propiedades de un componente (Con destructuring)</h4>
+
+      <BienvenidaPersonalizada nombre="Jhoel" edad="23" color="amarillo" />
+      <BienvenidaPersonalizada nombre="Fernando" edad="22" />
+      <BienvenidaPersonalizada nombre="Fernando" />
     </section>
   )
 }
 
+
 export default App
+
+
+
