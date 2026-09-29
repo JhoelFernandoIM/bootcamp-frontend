@@ -18,9 +18,32 @@ const Card = () =>{
   )
 }
 
+const CardConTailwindCSS = () =>{
+  return (
+    <section className= "mt-4 bg-orange-500 w-[300px] p-4 flex flex-col gap-4 rounded-md" 
+    >
+      <h1 className='text-xl font-bold mb-2 text-center'>Hola React</h1>
+
+      <p className='text-center'>
+        Estoy aprendiendo estilos con React.js
+      </p>
+
+      <button className=' w-full bg-blue-500 p-2 rounded-md'>
+        Ok
+      </button>
+    </section>
+  )
+}
+
 const App = () => {
   return (
-    <Card/>
+    <section>
+      <h1 className='text-2xl text-center text-amber-700 mb-8'>
+        React + css + tailwindcss</h1>
+      <Card/>
+
+      <CardConTailwindCSS/>
+    </section>
   )
 }
 
