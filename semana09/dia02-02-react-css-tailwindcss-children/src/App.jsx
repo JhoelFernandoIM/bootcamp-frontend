@@ -1,6 +1,8 @@
 import './Card.css'
 
-const Card = () =>{
+//Children: Es el contenido hijo dentro del componente
+
+const Card = ({ children }) =>{
   return (
     <section className= "card" 
     style={{ backgroundColor: 'yellow', padding: '8px'}}
@@ -8,7 +10,7 @@ const Card = () =>{
       <h1 className='title'>Hola React</h1>
 
       <p className='description'>
-        Estoy aprendiendo estilos con React.js
+        {children ?? 'Ingresa un contenido en tu componente...'}
       </p>
 
       <button className='button'>
@@ -40,6 +42,10 @@ const App = () => {
     <section>
       <h1 className='text-2xl text-center text-amber-700 mb-8'>
         React + css + tailwindcss</h1>
+      <Card>
+        Hola, estoy aprendiendo estilos con REACT (CHILDREN)
+      </Card>
+
       <Card/>
 
       <CardConTailwindCSS/>
