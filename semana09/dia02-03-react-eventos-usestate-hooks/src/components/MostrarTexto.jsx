@@ -1,7 +1,17 @@
+import { useState } from "react"
+
 const MostrarTexto = () => {
-  return (
-    <div>MostrarTexto</div>
-  )
+    const [visible, setVisible] = useState(false)
+
+    return (
+    <div>
+        <button onClick={() =>setVisible(!visible)}>
+            Mostrar / Ocultar
+        </button>
+
+        {visible && <p>Hola a todos 🤣</p>}
+    </div>
+    )
 }
 
 export default MostrarTexto
