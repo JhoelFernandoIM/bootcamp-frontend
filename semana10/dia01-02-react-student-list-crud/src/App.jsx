@@ -43,23 +43,25 @@ const App = () => {
 
       </form>
 
-      <h2>Student list</h2>
+      <h2 className="text-center text-slate-700 font-bold my-4">Student list</h2>
 
-      <section>
-        <div>
-          <div>Name</div>
-          <div>City</div>
-          <div>Actions</div>
+      <section className="mt-4 flex flex-col gap-2">
+        <div className="flex justify-between items-center gap-2 bg-slate-300 px-4 py-2 rounded-lg">
+          <div className="text-left">Name</div>
+          <div className="text-left">City</div>
+          <div className="flex gap-2">Actions</div>
         </div>
 
-        <div>
-          <div>Student 1</div>
-          <div>Juliaca</div>
-          <div>
+        <div className="flex justify-between items-center gap-2 bg-slate-100 px-4 py-2 rounded-lg">
+          <div className="text-left">Student 1</div>
+          <div className="text-left">Juliaca</div>
+          <div className="flex gap-2">
             <button>/</button>
             <button>X</button>
           </div>
         </div>
+
+        
       </section>
     </main>
   )
