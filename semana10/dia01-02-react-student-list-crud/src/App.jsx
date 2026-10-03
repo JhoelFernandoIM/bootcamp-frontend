@@ -1,12 +1,15 @@
 const App = () => {
   return (
-    <main>
-      <h1>Student CRUD</h1>
+    <main className="w-96 mx-auto border border-slate-400 rounded-lg mt-6 p-4">
+      <h1 className="text-2xl text-center text-slate-700 font-bold mb-4">Student CRUD</h1>
 
-      <form> 
-        <label>
-          <span>Name</span>
+      <form
+        className="flex flex-col gap-4 bg-slate-100 p-3 rounded-lg border"
+      > 
+        <label className="flex flex-col gap-2">
+          <span className="text-sm font-medium text-slate-900">Name</span>
           <input 
+          className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg w-full px-4 py-2"
           type="text" 
           name="name"
           placeholder="Ex. Jhoel Ingalla"
@@ -14,9 +17,10 @@ const App = () => {
           />
         </label>
 
-        <label>
-          <span>City</span>
+        <label className="flex flex-col gap-2">
+          <span className="text-sm font-medium text-slate-900">City</span>
           <input 
+          className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg w-full px-4 py-2"
           type="text" 
           name="city"
           placeholder="Ex. Juliaca"
@@ -24,12 +28,14 @@ const App = () => {
           />
         </label>
 
-        <div>
+        <div className="flex gap-4">
           <input 
+          className="bg-blue-700 text-white hover:bg-blue-800 font-medium rounded-lg text-sm w-full px-4 py-2 text-center cursor-pointer"
           type="submit" 
           value="Save"
           />
           <input 
+          className="bg-slate-500 text-white hover:bg-slate-600 font-medium rounded-lg text-sm w-full px-4 py-2 text-center cursor-pointer"
           type="submit" 
           value="Clear"
           />
