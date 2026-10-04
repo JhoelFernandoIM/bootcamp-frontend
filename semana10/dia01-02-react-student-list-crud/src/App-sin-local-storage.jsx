@@ -3,6 +3,7 @@ import { useState } from "react"
 import Swal from 'sweetalert2'
 
 const App = () => {
+
   const DEFAULT_STUDENTS = [
     {
       id: '1',
@@ -15,19 +16,13 @@ const App = () => {
       city: 'Lima'
     },
     {
-      id: '3',
+      id:'3',
       name: 'Vegeta',
       city: 'Trujillo'
     }
   ]
 
-  const [students, setStudents] = useState(() => {
-    const savesStudents = localStorage.getItem('STUDENTS')
-
-    return savesStudents
-      ? JSON.parse(savesStudents)
-      : DEFAULT_STUDENTS
-  })
+  const [students, setStudents] = useState(DEFAULT_STUDENTS)
   const [form, setForm] = useState({
     id: '',
     name: '',
@@ -39,7 +34,7 @@ const App = () => {
 
     console.log('Guardando...')
 
-    if (form.id) { // Actualizar un estudiante
+    if (form.id) { // actualizar un estudiante
       const updatedStudents = students.map(student => {
         if (student.id === form.id) {
           return {
@@ -51,21 +46,20 @@ const App = () => {
 
         return student
       })
-      
+
       setStudents(updatedStudents)
 
-      localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
-
-      setForm({
+      setForm ({
         id: '',
         name: '',
         city: ''
       })
 
       return
+
     }
-    
-    // Creando un nuevo estudiante
+
+    //Creando un nuevo estudiante
 
     const newStudent = {
       id: crypto.randomUUID(),
@@ -73,23 +67,20 @@ const App = () => {
       city: form.city
     }
 
-    const updatedStudents = [...students, newStudent]
-
-    setStudents(updatedStudents)
-
-    localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
+    setStudents([...students, newStudent])
 
     setForm({
       id: '',
       name: '',
       city: ''
     })
+
   }
 
   const handleChange = (event) => {
-    const { name, value } = event.target
+    const {name,value} = event.target
 
-    setForm({ ...form, [name]: value })
+    setForm({...form, [name]: value })
   }
 
   const handleDelete = (id) => {
@@ -105,18 +96,18 @@ const App = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
+
         const updatedStudents = students.filter(student => {
           return student.id !== id
         })
 
         setStudents(updatedStudents)
+        }
 
-        localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
-      }
-    });
-  }
+      });
+    
+    }
 
-  // TODO: Implementar el boton editar y el boton save del formulario
 
   const handleEdit = (student) => {
     console.log('Actualizando', student)
@@ -124,11 +115,12 @@ const App = () => {
       id: student.id,
       name: student.name,
       city: student.city
+
     })
   }
 
   const handleClear = () => {
-    setForm({
+    setForm ({
       id: '',
       name: '',
       city: ''
@@ -142,52 +134,53 @@ const App = () => {
       <form
         className="flex flex-col gap-4 bg-slate-100 p-3 rounded-lg border"
         onSubmit={handleSave}
-      >
+      > 
         <label className="flex flex-col gap-2">
           <span className="text-sm font-medium text-slate-900">Name</span>
-          <input
-            className="bg-slate-50 border border-slate-300 text-slate-90 text-sm rounded-lg w-full px-4 py-2"
-            type="text"
-            name="name"
-            placeholder="Ex. Victor Villazón"
-            required
-            onChange={handleChange}
-            value={form.name}
+          <input 
+          className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg w-full px-4 py-2"
+          type="text" 
+          name="name"
+          placeholder="Ex. Jhoel Ingalla"
+          required
+          onChange={handleChange}
+          value={form.name}
           />
         </label>
 
         <label className="flex flex-col gap-2">
           <span className="text-sm font-medium text-slate-900">City</span>
-          <input
-            className="bg-slate-50 border border-slate-300 text-slate-90 text-sm rounded-lg w-full px-4 py-2"
-            type="text"
-            name="city"
-            placeholder="Ex. Chiclayo"
-            required
-            onChange={handleChange}
-            value={form.city}
+          <input 
+          className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg w-full px-4 py-2"
+          type="text" 
+          name="city"
+          placeholder="Ex. Juliaca"
+          required
+          onChange={handleChange}
+          value={form.city}
           />
         </label>
 
         <div className="flex gap-4">
-          <input
-            className="bg-blue-700 text-white hover:bg-blue-800 font-medium rounded-lg text-sm w-full px-4 py-2 text-center cursor-pointer"
-            type="submit"
-            value="Save"
+          <input 
+          className="bg-blue-700 text-white hover:bg-blue-800 font-medium rounded-lg text-sm w-full px-4 py-2 text-center cursor-pointer"
+          type="submit" 
+          value="Save"
           />
-          <input
-            className="bg-slate-500 text-white hover:bg-slate-600 font-medium rounded-lg text-sm w-full px-4 py-2 text-center cursor-pointer"
-            type="button"
-            value="Clear"
-            onClick={handleClear}
+          <input 
+          className="bg-slate-500 text-white hover:bg-slate-600 font-medium rounded-lg text-sm w-full px-4 py-2 text-center cursor-pointer"
+          type="button" 
+          value="Clear"
+          onClick={handleClear}
           />
         </div>
+
       </form>
 
       <h2 className="text-center text-slate-700 font-bold my-4">Student list</h2>
 
       <section className="mt-4 flex flex-col gap-2">
-        <div className="flex justify-between items-center gap-2 bg-slate-300 px-4 py-2 rounded-lg ">
+        <div className="flex justify-between items-center gap-2 bg-slate-300 px-4 py-2 rounded-lg">
           <div className="text-left">Name</div>
           <div className="text-left">City</div>
           <div className="flex gap-2">Actions</div>
@@ -199,15 +192,17 @@ const App = () => {
               <div className="text-left">{student.name}</div>
               <div className="text-left">{student.city}</div>
               <div className="flex gap-2">
-                <button onClick={() => handleEdit(student)}>✏</button>
-                <button onClick={() => handleDelete(student.id)}>❌</button>
+                <button onClick={() => handleEdit(student)}>✏️</button>
+                <button onClick={() => handleDelete(student.id)}>❌​</button>
               </div>
             </div>
+
           )
         })}
 
-        <pre>{JSON.stringify(form, null, 2)}</pre>
-        <pre>{JSON.stringify(students, null, 2)}</pre>
+
+        <pre>{JSON.stringify(form, null, 2)} </pre>           
+        <pre>{JSON.stringify(students, null, 2)} </pre> 
       </section>
     </main>
   )
