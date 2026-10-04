@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import Swal from 'sweetalert2'
+
 const App = () => {
 
   const DEFAULT_STUDENTS = [
@@ -32,6 +34,33 @@ const App = () => {
 
     console.log('Guardando...')
 
+    if (form.id) { // actualizar un estudiante
+      const updatedStudents = students.map(student => {
+        if (student.id === form.id) {
+          return {
+            ...student,
+            name: form.name,
+            city: form.city
+          }
+        }
+
+        return student
+      })
+
+      setStudents(updatedStudents)
+
+      setForm ({
+        id: '',
+        name: '',
+        city: ''
+      })
+
+      return
+
+    }
+
+    //Creando un nuevo estudiante
+
     const newStudent = {
       id: crypto.randomUUID(),
       name: form.name,
@@ -57,11 +86,45 @@ const App = () => {
   const handleDelete = (id) => {
     console.log('Eliminando', id)
 
-    const updateStudents = students.filter(student => {
-      return student.id !== id
-    })
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
 
-    setStudents(updateStudents)
+        const updatedStudents = students.filter(student => {
+          return student.id !== id
+        })
+
+        setStudents(updatedStudents)
+        }
+
+      });
+    
+    }
+
+
+  const handleEdit = (student) => {
+    console.log('Actualizando', student)
+    setForm({
+      id: student.id,
+      name: student.name,
+      city: student.city
+
+    })
+  }
+
+  const handleClear = () => {
+    setForm ({
+      id: '',
+      name: '',
+      city: ''
+    })
   }
 
   return (
@@ -106,8 +169,9 @@ const App = () => {
           />
           <input 
           className="bg-slate-500 text-white hover:bg-slate-600 font-medium rounded-lg text-sm w-full px-4 py-2 text-center cursor-pointer"
-          type="submit" 
+          type="button" 
           value="Clear"
+          onClick={handleClear}
           />
         </div>
 
@@ -128,7 +192,7 @@ const App = () => {
               <div className="text-left">{student.name}</div>
               <div className="text-left">{student.city}</div>
               <div className="flex gap-2">
-                <button>✏️</button>
+                <button onClick={() => handleEdit(student)}>✏️</button>
                 <button onClick={() => handleDelete(student.id)}>❌​</button>
               </div>
             </div>
