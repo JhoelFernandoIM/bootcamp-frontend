@@ -21,6 +21,38 @@ const App = () => {
   ]
 
   const [students, setStudents] = useState(DEFAULT_STUDENTS)
+  const [form, setForm] = useState({
+    id: '',
+    name: '',
+    city: ''
+  })
+
+  const handleSave = (event) => {
+    event.preventDefault()
+
+    console.log('Guardando...')
+
+    const newStudent = {
+      id: crypto.randomUUID(),
+      name: form.name,
+      city: form.city
+    }
+
+    setStudents([...students, newStudent])
+
+    setForm({
+      id: '',
+      name: '',
+      city: ''
+    })
+
+  }
+
+  const handleChange = (event) => {
+    const {name,value} = event.target
+
+    setForm({...form, [name]: value })
+  }
 
   return (
     <main className="w-96 mx-auto border border-slate-400 rounded-lg mt-6 p-4">
@@ -28,6 +60,7 @@ const App = () => {
 
       <form
         className="flex flex-col gap-4 bg-slate-100 p-3 rounded-lg border"
+        onSubmit={handleSave}
       > 
         <label className="flex flex-col gap-2">
           <span className="text-sm font-medium text-slate-900">Name</span>
@@ -37,6 +70,8 @@ const App = () => {
           name="name"
           placeholder="Ex. Jhoel Ingalla"
           required
+          onChange={handleChange}
+          value={form.name}
           />
         </label>
 
@@ -48,6 +83,8 @@ const App = () => {
           name="city"
           placeholder="Ex. Juliaca"
           required
+          onChange={handleChange}
+          value={form.city}
           />
         </label>
 
@@ -90,7 +127,8 @@ const App = () => {
         })}
 
 
-        <pre>{JSON.stringify(students, null, 2)} </pre>           
+        <pre>{JSON.stringify(form, null, 2)} </pre>           
+        <pre>{JSON.stringify(students, null, 2)} </pre> 
       </section>
     </main>
   )
