@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 import Swal from 'sweetalert2'
-import { fetchStudents, createStudent, removeStudent } from "./services/students"
+import { fetchStudents, createStudent, removeStudent, updateStudent } from "./services/students"
 
 const App = () => {
   const DEFAULT_STUDENTS = [
@@ -26,22 +26,21 @@ const App = () => {
 
     console.log('Guardando...')
 
+    //TODO implementar el guardado del estudiante cuando este ya existe
+
     if (form.id) { // Actualizar un estudiante
-      const updatedStudents = students.map(student => {
-        if (student.id === form.id) {
-          return {
-            ...student,
-            name: form.name,
-            city: form.city
-          }
-        }
 
-        return student
-      })
-      
-      setStudents(updatedStudents)
+      const student = {
+        name: form.name,
+        city: form.city,
+      }
 
-      localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
+      updateStudent(student, form.id)
+        .then(() => {
+          fetchStudents()
+            .then(data => setStudents(data))
+        })
+
 
       setForm({
         id: '',

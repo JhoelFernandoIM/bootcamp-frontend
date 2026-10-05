@@ -30,3 +30,17 @@ export const removeStudent = async (id) => {
 
     return await response.json()
 }
+
+export const updateStudent = async (payload, id) => {
+    const options = {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            body: JSON.stringify(payload)
+        }
+    }
+
+    const response = await fetch(`${API_URL}/${id}`, options)
+
+    return await response.json()
+}
