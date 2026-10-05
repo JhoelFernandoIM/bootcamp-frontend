@@ -20,3 +20,13 @@ export const createStudent = async (payload) => {
 
     return await response.json()
 }
+
+export const removeStudent = async (id) => {
+    const options = {
+        method: 'DELETE'
+    }
+
+    const response = await fetch(`${API_URL}/${id}`, options)
+
+    return await response.json()
+}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 import Swal from 'sweetalert2'
-import { fetchStudents, createStudent } from "./services/students"
+import { fetchStudents, createStudent, removeStudent } from "./services/students"
 
 const App = () => {
   const DEFAULT_STUDENTS = [
@@ -81,6 +81,8 @@ const App = () => {
   }
 
   const handleDelete = (id) => {
+
+    //TODO implementar boton eliminar de cada estudiante para eliminar el apibox
     console.log('Eliminando', id)
 
     Swal.fire({
@@ -93,13 +95,14 @@ const App = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        const updatedStudents = students.filter(student => {
-          return student.id !== id
+        removeStudent(id)
+        .then(() => {
+          fetchStudents()
+            .then(data => setStudents(data))
+
         })
 
-        setStudents(updatedStudents)
 
-        localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
       }
     });
   }
