@@ -1,38 +1,25 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import Swal from 'sweetalert2'
+import { fetchStudents, createStudent } from "./services/students"
 
 const App = () => {
   const DEFAULT_STUDENTS = [
-    {
-      id: '1',
-      name: 'Bulma',
-      city: 'Chiclayo'
-    },
-    {
-      id: '2',
-      name: 'Goku',
-      city: 'Lima'
-    },
-    {
-      id: '3',
-      name: 'Vegeta',
-      city: 'Trujillo'
-    }
   ]
 
-  const [students, setStudents] = useState(() => {
-    const savesStudents = localStorage.getItem('STUDENTS')
-
-    return savesStudents
-      ? JSON.parse(savesStudents)
-      : DEFAULT_STUDENTS
-  })
+  const [students, setStudents] = useState([])
   const [form, setForm] = useState({
     id: '',
     name: '',
     city: ''
   })
+
+  useEffect(() => {
+    console.log('cargando students...')
+    fetchStudents()
+    .then(data => setStudents(data))
+    
+  }, []) //Este use effect se ejecuta la primera vez que el componente se crea
 
   const handleSave = (event) => {
     event.preventDefault()
@@ -68,16 +55,17 @@ const App = () => {
     // Creando un nuevo estudiante
 
     const newStudent = {
-      id: crypto.randomUUID(),
       name: form.name,
       city: form.city
     }
 
-    const updatedStudents = [...students, newStudent]
+    createStudent(newStudent)
+    .then(() => {
+      fetchStudents()
+        .then(data => setStudents(data))
+    })
 
-    setStudents(updatedStudents)
 
-    localStorage.setItem('STUDENTS', JSON.stringify(updatedStudents))
 
     setForm({
       id: '',
